@@ -287,7 +287,7 @@ export const CountryPicker = ({
                             <TouchableOpacity onPress={() => setSearchValue('')} style={[styles.cancelButton, style?.cancelButtonStyle]}>
                                 <Image
                                     source={cancelIconSource || require('../react-native-country-codes-picker/assets/cancel.png')}
-                                    style={[{ height: 24, width: 24 }, style?.cancelIconStyle]}
+                                    style={style?.cancelIconStyle}
                                 />
                             </TouchableOpacity>
                         ) : null}
