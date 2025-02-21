@@ -70,6 +70,8 @@ interface Props {
     searchMessage?: string,
     androidWindowSoftInputMode?: string,
     initialState?: string,
+
+    cancelIconSource?: any;
 }
 
 export const CountryPicker = ({
@@ -78,6 +80,7 @@ export const CountryPicker = ({
     pickerButtonOnPress,
     inputPlaceholder,
     inputPlaceholderTextColor,
+    cancelIconSource,
     searchMessage,
     lang = 'en',
     style,
@@ -283,7 +286,7 @@ export const CountryPicker = ({
                         {searchValue ? (
                             <TouchableOpacity onPress={() => setSearchValue('')} style={styles.cancelIcon}>
                                 <Image
-                                    source={require('../react-native-country-codes-picker/assets/cancel.png')}
+                                    source={cancelIconSource || require('../react-native-country-codes-picker/assets/cancel.png')}
                                     style={{ height: 24, width: 24 }}
                                 />
                             </TouchableOpacity>
