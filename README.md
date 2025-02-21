@@ -248,6 +248,10 @@ Below are the props you can pass to the React Component.
         // Country name styles [Text]
         countryName: {
 
+        },
+        // Cancel icon style [TouchableOpacity]
+        cancelIcon: {
+
         }
     }}
     pickerButtonOnPress={(item) => {
