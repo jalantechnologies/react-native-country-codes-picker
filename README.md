@@ -250,8 +250,12 @@ Below are the props you can pass to the React Component.
         countryName: {
 
         },
-        // Cancel icon style [TouchableOpacity]
-        cancelIcon: {
+        // Cancel Button style [TouchableOpacity]
+        cancelButtonStyle: {
+
+        },
+        // Cancel icon style [Image]
+        cancelIconStyle: {
 
         }
     }}
