@@ -284,10 +284,10 @@ export const CountryPicker = ({
                             {...rest}
                         />
                         {searchValue ? (
-                            <TouchableOpacity onPress={() => setSearchValue('')} style={styles.cancelIcon}>
+                            <TouchableOpacity onPress={() => setSearchValue('')} style={[styles.cancelButton, style?.cancelButtonStyle]}>
                                 <Image
                                     source={cancelIconSource || require('../react-native-country-codes-picker/assets/cancel.png')}
-                                    style={{ height: 24, width: 24 }}
+                                    style={[{ height: 24, width: 24 }, style?.cancelIconStyle]}
                                 />
                             </TouchableOpacity>
                         ) : null}
@@ -452,7 +452,7 @@ export const CountryList = ({
 };
 
 
-type StyleKeys = 'container' | 'modal' | 'modalInner' | 'searchBar' | 'countryMessage' | 'line' | 'cancelIcon';
+type StyleKeys = 'container' | 'modal' | 'modalInner' | 'searchBar' | 'countryMessage' | 'line' | 'cancelButton';
 
 const styles: { [key in StyleKeys]: ViewStyle } = {
     container: {
@@ -496,7 +496,7 @@ const styles: { [key in StyleKeys]: ViewStyle } = {
         height: 40,
         padding: 5,
     },
-    cancelIcon: {
+    cancelButton: {
         padding: 6,
         position: 'absolute',
         right: 20,

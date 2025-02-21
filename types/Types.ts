@@ -1,4 +1,4 @@
-import {ViewStyle, TextStyle} from "react-native";
+import {ViewStyle, TextStyle, ImageStyle} from "react-native";
 
 export interface ItemTemplateProps {
     item: CountryItem,
@@ -32,5 +32,7 @@ export interface Style {
     countryButtonStyles?: ViewStyle,
     flag?: TextStyle,
     dialCode?: TextStyle,
-    countryName?: TextStyle
+    countryName?: TextStyle,
+    cancelButtonStyle?: ViewStyle,
+    cancelIconStyle?: ImageStyle,
 }
