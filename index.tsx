@@ -11,7 +11,9 @@ import {
     Keyboard,
     ViewStyle,
     Modal,
-    TextStyle
+    TextStyle,
+    Image,
+    TouchableOpacity,
 } from 'react-native';
 import { CountryItem, ItemTemplateProps, Style, ListHeaderComponentProps } from "./types/Types";
 import { useKeyboardStatus } from "./helpers/useKeyboardStatus";
@@ -68,6 +70,8 @@ interface Props {
     searchMessage?: string,
     androidWindowSoftInputMode?: string,
     initialState?: string,
+
+    cancelIconSource?: any;
 }
 
 export const CountryPicker = ({
@@ -76,6 +80,7 @@ export const CountryPicker = ({
     pickerButtonOnPress,
     inputPlaceholder,
     inputPlaceholderTextColor,
+    cancelIconSource,
     searchMessage,
     lang = 'en',
     style,
@@ -192,6 +197,7 @@ export const CountryPicker = ({
             duration: 400,
             useNativeDriver: true,
         }).start(() => setShowModal(false));
+        setSearchValue('');
     };
 
     const renderItem = ({ item, index }: { item: CountryItem, index: number }) => {
@@ -265,6 +271,7 @@ export const CountryPicker = ({
                         style={{
                             flexDirection: 'row',
                             alignItems: 'center',
+                            position: 'relative',
                         }}
                     >
                         <TextInput
@@ -276,6 +283,14 @@ export const CountryPicker = ({
                             testID='countryCodesPickerSearchInput'
                             {...rest}
                         />
+                        {searchValue ? (
+                            <TouchableOpacity onPress={() => setSearchValue('')} style={[styles.cancelButton, style?.cancelButtonStyle]}>
+                                <Image
+                                    source={cancelIconSource || require('../react-native-country-codes-picker/assets/cancel.png')}
+                                    style={style?.cancelIconStyle}
+                                />
+                            </TouchableOpacity>
+                        ) : null}
                     </View>
                     <View style={[styles.line, style?.line]} />
                     {resultCountries.length === 0 ? (
@@ -437,7 +452,7 @@ export const CountryList = ({
 };
 
 
-type StyleKeys = 'container' | 'modal' | 'modalInner' | 'searchBar' | 'countryMessage' | 'line';
+type StyleKeys = 'container' | 'modal' | 'modalInner' | 'searchBar' | 'countryMessage' | 'line' | 'cancelButton';
 
 const styles: { [key in StyleKeys]: ViewStyle } = {
     container: {
@@ -480,6 +495,11 @@ const styles: { [key in StyleKeys]: ViewStyle } = {
         borderRadius: 10,
         height: 40,
         padding: 5,
+    },
+    cancelButton: {
+        padding: 6,
+        position: 'absolute',
+        right: 20,
     },
     countryMessage: {
         justifyContent: 'center',

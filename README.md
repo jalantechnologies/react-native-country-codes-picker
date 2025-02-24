@@ -193,6 +193,7 @@ Below are the props you can pass to the React Component.
 | showOnly  | array    |         | showOnly={['UA', 'EN']}  | This prop allow you to configure which countries you want to show. |
 | popularCountries  | array    |         | popularCountries={['UA', 'EN']}  | This prop allow you to send popular countries array to your ListHeaderComponent. |
 | ListHeaderComponent  | JSX.Element    |         | ListHeaderComponent={ListHeaderComponent}  | This prop allow you to create header component to show popular countries on top of list! Check example section with ListHeaderComponent  |
+{cancelIconSource} | any | require('../react-native-country-codes-picker/assets/cancel.png') | cancelIconSource={require('./path/to/custom-image.png')} | This prop allow you to pass custom icon for clear search icon. |
 
 :grey_exclamation: Also you can use all other FlatList and TextInput props if you need. :grey_exclamation:
 
@@ -247,6 +248,14 @@ Below are the props you can pass to the React Component.
         },
         // Country name styles [Text]
         countryName: {
+
+        },
+        // Cancel Button style [TouchableOpacity]
+        cancelButtonStyle: {
+
+        },
+        // Cancel icon style [Image]
+        cancelIconStyle: {
 
         }
     }}
